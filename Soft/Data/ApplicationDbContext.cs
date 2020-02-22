@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Facade.Quantity;
+using Abc.Infra.Quantity;
 
 namespace Soft.Data
 {
@@ -11,12 +12,11 @@ namespace Soft.Data
             : base(options)
         {
         }
-        public DbSet<Facade.Quantity.MeasureView> Measures { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<MeasureView>().ToTable(nameof(Measures));
+            QuantityDbContext.InitializeTables(builder);
         }
     }
 }

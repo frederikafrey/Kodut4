@@ -7,37 +7,26 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Facade.Quantity;
 using Soft.Data;
+using Abc.Domain.Quantity;
+using Abc.Facade.Quantity;
+using Abc.Pages;
 
 namespace Soft.Areas.Quantity.Pages.Measures
 {
-    public class CreateModel : PageModel
+    public class CreateModel : MeasuresPage
     {
-        private readonly Soft.Data.ApplicationDbContext _context;
-
-        public CreateModel(Soft.Data.ApplicationDbContext context)
+        public CreateModel(IMeasuresRepository r) : base(r)
         {
-            _context = context;
-        }
 
-        public IActionResult OnGet()
-        {
-            return Page();
         }
-
-        [BindProperty]
-        public MeasureView MeasureView { get; set; }
+        public IActionResult OnGet() => Page();
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            _context.Measures.Add(MeasureView);
-            await _context.SaveChangesAsync();
+            if (!ModelState.IsValid) return Page();
+            await data.Add(MeasureViewFactory.Create(Item));
 
             return RedirectToPage("./Index");
         }

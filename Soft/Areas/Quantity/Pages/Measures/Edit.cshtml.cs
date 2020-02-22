@@ -8,34 +8,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Facade.Quantity;
 using Soft.Data;
+using Abc.Pages;
+using Abc.Domain.Quantity;
+using Abc.Facade.Quantity;
 
 namespace Soft.Areas.Quantity.Pages.Measures
 {
-    public class EditModel : PageModel
+    public class EditModel : MeasuresPage
     {
-        private readonly Soft.Data.ApplicationDbContext _context;
-
-        public EditModel(Soft.Data.ApplicationDbContext context)
+        public EditModel(IMeasuresRepository r) : base(r)
         {
-            _context = context;
+
         }
-
-        [BindProperty]
-        public MeasureView MeasureView { get; set; }
-
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            MeasureView = await _context.Measures.FirstOrDefaultAsync(m => m.Id == id);
+            Item = MeasureViewFactory.Create(await data.Get(id));
 
-            if (MeasureView == null)
-            {
-                return NotFound();
-            }
+            if (Item == null) return NotFound();
             return Page();
         }
 
@@ -43,35 +34,11 @@ namespace Soft.Areas.Quantity.Pages.Measures
         // more details see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+            if (!ModelState.IsValid) return Page();
 
-            _context.Attach(MeasureView).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!MeasureViewExists(MeasureView.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            await data.Update(MeasureViewFactory.Create(Item));
 
             return RedirectToPage("./Index");
-        }
-
-        private bool MeasureViewExists(string id)
-        {
-            return _context.Measures.Any(e => e.Id == id);
         }
     }
 }
