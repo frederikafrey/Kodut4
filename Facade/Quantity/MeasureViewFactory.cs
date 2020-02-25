@@ -14,8 +14,8 @@ namespace Abc.Facade.Quantity
             var d = new MeasureData
             {
                 Id = v.Id,
-                Name = v.Name,
                 Code = v.Code,
+                Name = v.Name,
                 Definition = v.Definition,
                 ValidFrom = v.ValidFrom,
                 ValidTo = v.ValidTo
@@ -29,8 +29,8 @@ namespace Abc.Facade.Quantity
             var v = new MeasureView
             {
                 Id = o.Data.Id,
-                Name = o.Data.Name,
                 Code = o.Data.Code,
+                Name = o.Data.Name,
                 Definition = o.Data.Definition,
                 ValidFrom = o.Data.ValidFrom,
                 ValidTo = o.Data.ValidTo
