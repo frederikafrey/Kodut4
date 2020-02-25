@@ -16,6 +16,7 @@ namespace Soft.Areas.Quantity.Pages.Measures
 {
     public class IndexModel : MeasuresPage
     {
+        public string SearchString;
         public IndexModel(IMeasuresRepository r) : base(r)
         {
 
@@ -24,11 +25,13 @@ namespace Soft.Areas.Quantity.Pages.Measures
         public string NameSort { get; set; }
         public string DateSort { get; set; }
 
-        public async Task OnGetAsync(string sortOrder)
+        public async Task OnGetAsync(string sortOrder, string searchString)
         {
             NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             DateSort = sortOrder == "Date" ? "date_desc" : "Date";
             data.SortOrder = sortOrder;
+            SearchString = searchString;
+            data.SearchString = searchString;
             var l = await data.Get();
             Items = new List<MeasureView>();
             foreach (var e in l) Items.Add(MeasureViewFactory.Create(e));

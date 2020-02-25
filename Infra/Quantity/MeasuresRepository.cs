@@ -12,6 +12,7 @@ namespace Abc.Infra.Quantity
     {
         protected internal QuantityDbContext db;
         public string SortOrder { get; set; }
+        public string SearchString { get; set; }
         public MeasuresRepository(QuantityDbContext c)
         {
             db = c;
@@ -34,8 +35,19 @@ namespace Abc.Infra.Quantity
 
         public async Task<List<Measure>> Get()
         {
-            var list = await createSorted().ToListAsync();
+            var list = await createFiltered(createSorted()).ToListAsync();
             return list.Select(e => new Measure(e)).ToList();
+        }
+
+        private IQueryable<MeasureData> createFiltered(IQueryable<MeasureData> set)
+        {
+            if (string.IsNullOrEmpty(SearchString)) return set;
+                return set.Where(s => s.Name.Contains(SearchString)
+                                       || s.Code.Contains(SearchString)
+                                       || s.Id.Contains(SearchString)
+                                       || s.Definition.Contains(SearchString)
+                                       || s.ValidFrom.ToString().Contains(SearchString)
+                                       || s.ValidTo.ToString().Contains(SearchString));
         }
 
         private IQueryable<MeasureData> createSorted()
