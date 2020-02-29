@@ -13,7 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra", "Infra\Infra.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pages", "Pages\Pages.csproj", "{443A96B4-EF40-494D-BB71-4EB98A613FEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Soft", "Soft\Soft.csproj", "{CA6076CA-B598-4634-AA32-964FF5BA6917}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Soft", "Soft\Soft.csproj", "{CA6076CA-B598-4634-AA32-964FF5BA6917}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0278BBFC-D9C5-4870-815C-B4D438806D80}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\OneDrive\Documents\Ülikool\2. semester\Proge\Time recording log.xlsx = ..\..\..\OneDrive\Documents\Ülikool\2. semester\Proge\Time recording log.xlsx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
