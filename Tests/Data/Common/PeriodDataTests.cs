@@ -24,7 +24,7 @@ namespace Tests.Data.Common
             //Assert.AreNotEqual(d, obj.ValidFrom);
             //obj.ValidFrom = d;
             //Assert.AreEqual(d, obj.ValidFrom);
-            isNullableProperty(() => obj.ValidFrom, x => obj.ValidFrom = x, () => DateTime.Now);
+            isNullableProperty(() => obj.ValidFrom, x => obj.ValidFrom = x);
         }
 
         [TestMethod]
@@ -34,7 +34,7 @@ namespace Tests.Data.Common
             //Assert.AreNotEqual(d, obj.ValidTo);
             //obj.ValidTo = d;
             //Assert.AreEqual(d, obj.ValidTo);
-            isNullableProperty(() => obj.ValidTo, x => obj.ValidTo = x, () => DateTime.Now);
+            isNullableProperty(() => obj.ValidTo, x => obj.ValidTo = x);
         }
     }
 }

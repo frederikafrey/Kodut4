@@ -17,5 +17,17 @@ namespace Tests.Data.Common
             base.TestInitialize();
             obj = new testClass();
         }
+
+        [TestMethod]
+        public void NameTest()
+        {
+            isNullableProperty(() => obj.Name, x => obj.Name = x);
+        }
+
+        [TestMethod]
+        public void CodeTest()
+        {
+            isNullableProperty(() => obj.Code, x => obj.Code = x);
+        }
     }
 }
