@@ -3,7 +3,7 @@ using System;
 
 namespace Abc.Data.Quantity
 {
-    public class MeasureData : DefinedEntityData
+    public sealed class MeasureData : DefinedEntityData //sealed tähendab, et sellest klassist ei saa enam pärida
     {
     }
 }

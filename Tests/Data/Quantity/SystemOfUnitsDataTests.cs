@@ -8,7 +8,7 @@ using System.Text;
 namespace Tests.Data.Quantity
 {
     [TestClass]
-    public class UnitDataTests : SealedClassTest<UnitData, DefinedEntityData>
+    public class SystemOfUnitsDataTests : SealedClassTest<SystemOfUnitsData, DefinedEntityData>
     {
     }
 }

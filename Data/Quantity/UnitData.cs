@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Abc.Data.Quantity
 {
-    public class UnitData : DefinedEntityData
+    public sealed class UnitData : DefinedEntityData
     {
         public string MeasureId { get; set; }
     }

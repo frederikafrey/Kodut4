@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Abc.Data.Common
 {
-    public class DefinedEntityData : NamedEntityData
+    public abstract class DefinedEntityData : NamedEntityData
     {
         public string Definition { get; set; }
     }

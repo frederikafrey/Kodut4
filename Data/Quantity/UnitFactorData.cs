@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Abc.Data.Quantity
 {
-    public class UnitFactorData : PeriodData
+    public sealed class UnitFactorData : PeriodData
     {
         public string UnitId { get; set; }
         public string SystemOfUnitsId { get; set; }

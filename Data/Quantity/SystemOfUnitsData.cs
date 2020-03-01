@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Abc.Data.Quantity
 {
-    public class SystemOfUnitsData : DefinedEntityData
+    public sealed class SystemOfUnitsData : DefinedEntityData
     {
     }
 }
