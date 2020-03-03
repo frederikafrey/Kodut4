@@ -6,13 +6,13 @@ namespace Tests.Data.Common
     [TestClass]
     public class UniqueEntityDataTests : AbstractClassTest<UniqueEntityData, PeriodData>
     {
-        private class testClass : UniqueEntityData { }
+        private class TestClass : UniqueEntityData { }
 
         [TestInitialize]
         public override void TestInitialize()
         {
             base.TestInitialize();
-            obj = new testClass();
+            obj = new TestClass();
         }
 
         [TestMethod]
