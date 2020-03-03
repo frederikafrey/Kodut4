@@ -10,7 +10,7 @@ namespace Abc.Infra
     public abstract class BaseRepository<TDomain, TData> : ICrudMethods<TDomain> 
         where TData: PeriodData, new()
         where TDomain: Entity<TData>, new()
-
+    
     {
         protected internal DbContext db;
         protected internal DbSet<TData> dbSet;
