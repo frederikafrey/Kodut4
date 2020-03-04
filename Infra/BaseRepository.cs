@@ -29,19 +29,14 @@ namespace Abc.Infra
         {
             if (id is null) return new TDomain();
 
-            var d = await dbSet.FirstOrDefaultAsync(m => IsThisRecord(m, id));
+            var d = await getData(id);
 
             var obj = new TDomain {Data = d};
 
             return obj;
         }
 
-        protected virtual bool IsThisRecord(TData d, string id)
-        {
-            if (d is UniqueEntityData data) return data.Id == id;
-            
-            return true;
-        }
+        protected abstract Task<TData> getData(string id);
 
         public async Task Delete(string id)
         {
