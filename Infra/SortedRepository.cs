@@ -65,8 +65,8 @@ namespace Abc.Infra
         }
 
         internal IQueryable<TData> setOrderBy(IQueryable<TData> data, Expression<Func<TData,object>> e)
-            => isDecending() ? data.OrderByDescending(e) : data.OrderBy((e));
+            => isDescending() ? data.OrderByDescending(e) : data.OrderBy((e));
 
-        internal bool isDecending() => SortOrder.EndsWith(DescendingString);
+        internal bool isDescending() => !string.IsNullOrEmpty(SortOrder) && SortOrder.EndsWith(DescendingString);
     }
 }
