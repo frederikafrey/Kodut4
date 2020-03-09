@@ -55,7 +55,7 @@ namespace Abc.Infra
             return typeof(TData).GetProperty(name);
         }
 
-        private string getName()
+        internal string getName()
         {
             if (string.IsNullOrEmpty(SortOrder)) return string.Empty;
             var idx = SortOrder.IndexOf(DescendingString, StringComparison.Ordinal);
