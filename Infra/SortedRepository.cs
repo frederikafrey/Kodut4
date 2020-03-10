@@ -29,8 +29,9 @@ namespace Abc.Infra
         {
             var expression = createExpression();
 
-            if (expression is null) return data; 
-            return setOrderBy(data, expression);
+            var r = expression is null ? data : setOrderBy(data, expression);
+
+            return r;
         }
         
         internal Expression<Func<TData, object>> createExpression()
