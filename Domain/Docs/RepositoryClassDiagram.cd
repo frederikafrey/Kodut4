@@ -24,18 +24,18 @@
   <Interface Name="Abc.Domain.Common.IPaging" Collapsed="true">
     <Position X="2.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAUAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAAAAA=</HashCode>
       <FileName>Common\IPaging.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Abc.Domain.Common.ISorting" Collapsed="true">
+  <Interface Name="Abc.Domain.Common.ISorting">
     <Position X="5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Common\ISorting.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Abc.Domain.Common.ISearching" Collapsed="true">
+  <Interface Name="Abc.Domain.Common.ISearching">
     <Position X="7.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>

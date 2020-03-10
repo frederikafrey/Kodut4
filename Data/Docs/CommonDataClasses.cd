@@ -28,35 +28,35 @@
       <FileName>Common\PeriodData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Abc.Data.Money.CurrencyData" Collapsed="true">
+  <Class Name="Abc.Data.Money.CurrencyData">
     <Position X="1.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Money\CurrencyData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Abc.Data.Quantity.MeasureData" Collapsed="true">
+  <Class Name="Abc.Data.Quantity.MeasureData">
     <Position X="3" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Quantity\MeasureData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Abc.Data.Quantity.UnitData" Collapsed="true">
+  <Class Name="Abc.Data.Quantity.UnitData">
     <Position X="4.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Quantity\UnitData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Abc.Data.Quantity.SystemOfUnitsData" Collapsed="true">
+  <Class Name="Abc.Data.Quantity.SystemOfUnitsData">
     <Position X="6" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Quantity\SystemOfUnitsData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Abc.Data.Quantity.UnitFactorData" Collapsed="true">
+  <Class Name="Abc.Data.Quantity.UnitFactorData">
     <Position X="9" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAACAAAAAAEAAAAAAA=</HashCode>

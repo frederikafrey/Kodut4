@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Abc.Data.Common;
 using Abc.Domain.Common;
@@ -22,7 +22,23 @@ namespace Abc.Infra
         }
         public virtual async Task<List<TDomain>> Get()
         {
-            throw new NotImplementedException();
+            var query = createSqlQuery(); // teen sql query
+            var set = await runSqlQueryAsync(query); //küsin andmebaasist andmeid
+            
+            return toDomainObjectsList(set); // ütlen et vii see kõik sellisesse listi, mis on valdkonna objektide list
+        }
+
+        internal List<TDomain> toDomainObjectsList(List<TData> set) => set.Select(toDomainObject).ToList();
+
+        protected internal abstract TDomain toDomainObject(TData periodData);
+
+        internal async Task<List<TData>> runSqlQueryAsync(IQueryable<TData> query) => await query.AsNoTracking().ToListAsync();
+
+        protected internal virtual IQueryable<TData> createSqlQuery()
+        {
+            var query = from s in dbSet select s; // lihtne sql päring
+
+            return query;
         }
 
         public async Task<TDomain> Get(string id)
