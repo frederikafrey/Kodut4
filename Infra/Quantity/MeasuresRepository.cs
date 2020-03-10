@@ -1,9 +1,6 @@
 ﻿using Abc.Data.Quantity;
 using Abc.Domain.Quantity;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Abc.Infra.Quantity
 {

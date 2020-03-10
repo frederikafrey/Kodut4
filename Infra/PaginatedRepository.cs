@@ -27,31 +27,13 @@ namespace Abc.Infra
             return pages;
         }
 
-        internal int countTotalPages(int count, in int pageSize)
-        {
-            return (int)Math.Ceiling(count / (double)pageSize);
-        }
+        internal int countTotalPages(int count, in int pageSize) => (int)Math.Ceiling(count / (double)pageSize);
 
-        internal int getItemsCount()
-        {
-            var query = base.createSqlQuery();
-            
-            return query.CountAsync().Result;
-        }
+        internal int getItemsCount() => base.createSqlQuery().CountAsync().Result;
 
-        protected internal override IQueryable<TData> createSqlQuery()
-        {
-            var query = base.createSqlQuery();
-            query = addSkipAndTake(query);
+        protected internal override IQueryable<TData> createSqlQuery() => addSkipAndTake(base.createSqlQuery());
 
-            return query;
-        }
-
-        private IQueryable<TData> addSkipAndTake(IQueryable<TData> query)
-        {
-            var q = query.Skip((PageIndex - 1) * PageSize).Take(PageSize);
-
-            return q;
-        }
+        private IQueryable<TData> addSkipAndTake(IQueryable<TData> query) => query.Skip(
+            (PageIndex - 1) * PageSize).Take(PageSize);
     }
 }
