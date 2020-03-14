@@ -9,4 +9,4 @@ using Abc.Domain.Quantity;
 
         protected internal override Measure toDomainObject(MeasureData d) => new Measure(d);
     }
-}
+} 

@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Abc.Pages;
-using Abc.Facade.Quantity;
 using Abc.Domain.Quantity;
 
 namespace Soft.Areas.Quantity.Pages.Measures
@@ -14,20 +13,14 @@ namespace Soft.Areas.Quantity.Pages.Measures
         }
         public async Task<IActionResult> OnGetAsync(string id)
         {
-            if (id == null) return NotFound();
-
-            Item = MeasureViewFactory.Create(await data.Get(id));
-
-            if (Item == null) { return NotFound(); }
+            await getObject(id);
 
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(string id)
         {
-            if (id == null) return NotFound();
-
-            await data.Delete(id);
+            await deleteObject(id);
 
             return RedirectToPage("./Index");
         }

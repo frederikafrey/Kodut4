@@ -15,9 +15,9 @@ namespace Abc.Soft.Areas.Quantity.Pages.Measures
 
         }
 
-        public string NameSort { get; set; }
         public string CurrentSort { get; set; }
         public string ValidFromSort { get; set; }
+        public string NameSort { get; set; }
         public string IdSort { get; set; }
         public string CodeSort { get; set; }
         public string DefinitionSort { get; set; }
