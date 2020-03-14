@@ -14,12 +14,14 @@ namespace Soft.Areas.Quantity.Pages.Measures
         public async Task<IActionResult> OnGetAsync(string id)
         {
             await getObject(id);
+
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
             await updateObject();
+
             return RedirectToPage("./Index");
         }
     }
