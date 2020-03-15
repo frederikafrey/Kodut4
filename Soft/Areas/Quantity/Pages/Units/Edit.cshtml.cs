@@ -3,11 +3,11 @@ using Abc.Domain.Quantity;
 using Abc.Pages.Quantity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Abc.Soft.Areas.Quantity.Pages.Measures
+namespace Abc.Soft.Areas.Quantity.Pages.Units
 {
-    public class DeleteModel : MeasuresPage
+    public class EditModel : UnitsPage
     {
-        public DeleteModel(IMeasuresRepository r) : base(r)
+        public EditModel(IUnitsRepository r) : base(r)
         {
 
         }
@@ -18,9 +18,9 @@ namespace Abc.Soft.Areas.Quantity.Pages.Measures
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(string id)
+        public async Task<IActionResult> OnPostAsync()
         {
-            await deleteObject(id);
+            await updateObject();
 
             return RedirectToPage("./Index");
         }

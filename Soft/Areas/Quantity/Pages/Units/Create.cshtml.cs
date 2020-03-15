@@ -3,14 +3,12 @@ using Abc.Domain.Quantity;
 using Abc.Pages.Quantity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Abc.Soft.Areas.Quantity.Pages.Measures
+namespace Abc.Soft.Areas.Quantity.Pages.Units
 {
-    public class CreateModel : MeasuresPage
+    public class CreateModel : UnitsPage
     {
-        public CreateModel(IMeasuresRepository r) : base(r)
-        {
+        public CreateModel(IUnitsRepository r) : base(r) { }
 
-        }
         public IActionResult OnGet() => Page();
 
         public async Task<IActionResult> OnPostAsync()

@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Abc.Pages;
 using Abc.Domain.Quantity;
+using Abc.Pages.Quantity;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Soft.Areas.Quantity.Pages.Measures
+namespace Abc.Soft.Areas.Quantity.Pages.Measures
 {
     public class EditModel : MeasuresPage
     {

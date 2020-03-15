@@ -1,15 +1,15 @@
+using Abc.Domain.Quantity;
+using Abc.Infra.Quantity;
+using Abc.Soft.Data;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Soft.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Abc.Infra.Quantity;
-using Abc.Domain.Quantity;
 
-namespace Soft
+namespace Abc.Soft
 {
     public class Startup
     {
@@ -31,8 +31,9 @@ namespace Soft
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddScoped<IMeasuresRepository, MeasuresRepository>();
             services.AddRazorPages();
+            services.AddScoped<IMeasuresRepository, MeasuresRepository>();
+            services.AddScoped<IUnitsRepository, UnitsRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

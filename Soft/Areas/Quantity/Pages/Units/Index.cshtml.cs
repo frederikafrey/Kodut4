@@ -9,12 +9,12 @@ using Abc.Domain.Quantity;
 using Abc.Facade.Quantity;
 using Abc.Pages.Quantity;
 
-namespace Abc.Soft.Areas.Quantity.Pages.Measures
+namespace Abc.Soft.Areas.Quantity.Pages.Units
 {
-    public class IndexModel : MeasuresPage
+    public class IndexModel : UnitsPage
     {
         
-        public IndexModel(IMeasuresRepository r) : base(r)
+        public IndexModel(IUnitsRepository r) : base(r)
         {
 
         }
