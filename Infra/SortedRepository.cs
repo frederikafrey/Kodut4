@@ -51,7 +51,7 @@ namespace Abc.Infra
 
         internal Expression<Func<TData, object>> lambdaExpression(PropertyInfo p)
         {
-            var param = Expression.Parameter(typeof(TData)); //millisest tüübist ma hakkan lambda expressionit tegema
+            var param = Expression.Parameter(typeof(TData), "x"); //millisest tüübist ma hakkan lambda expressionit tegema
             var property = Expression.Property(param, p); 
             var body = Expression.Convert(property, typeof(object));
             

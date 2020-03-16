@@ -6,25 +6,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Abc.Tests
 {
-    public abstract class BaseTest<TClass, TBaseClass>
+    public class BaseTests
     {
         private const string notTested = "<{0}> is not tested"; //const tähendab et selle fieldi väärtust ei muudeta
         private const string notSpecified = "Class is not specified";
         private List<string> members { get; set; }
-        protected TClass obj;
         protected Type type;
-
-        [TestInitialize]
-        public virtual void TestInitialize()
-        {
-            type = typeof(TClass);
-        }
-
-        [TestMethod]
-        public void IsInheritedTest()
-        {
-            Assert.AreEqual(typeof(TBaseClass), type.BaseType);
-        }
 
         [TestMethod]
         public void IsTested()
@@ -52,29 +39,17 @@ namespace Abc.Tests
             }
         }
 
-        protected static void isNullableProperty<T>(Func<T> get, Action<T> set)
+        protected static void testArePropertyValuesEqual(object obj1, object obj2)
         {
-            isProperty(get, set);
-            set(default);
-            Assert.IsNull(get());
-        }
-
-        protected static void isProperty<T>(Func<T> get, Action<T> set)
-        {
-            var d = (T)GetRandom.Value(typeof(T));
-            Assert.AreNotEqual(d, get());
-            set(d);
-            Assert.AreEqual(d, get());
-        }
-
-        protected static void isReadOnlyProperty(object o, string name, object expected)
-        {
-            var property = o.GetType().GetProperty(name);
-            Assert.IsNotNull(property);
-            Assert.IsFalse(property.CanWrite);
-            Assert.IsTrue(property.CanRead);
-            var actual = property.GetValue(o);
-            Assert.AreEqual(expected, actual);
+            foreach (var property in obj1.GetType().GetProperties())
+            {
+                var name = property.Name;
+                var p = obj2.GetType().GetProperty(name);
+                Assert.IsNotNull(p, $"No property with name '{name}' found.");
+                var expected = property.GetValue(obj1);
+                var actual = p.GetValue(obj2);
+                Assert.AreEqual(expected, actual, $"For property '{name}'.");
+            }
         }
     }
 }

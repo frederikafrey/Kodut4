@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Threading.Tasks;
-using Abc.Aids;
-using Abc.Data.Quantity;
-using Abc.Pages;
+﻿using System.Threading.Tasks;
 using Abc.Domain.Quantity;
-using Abc.Facade.Quantity;
 using Abc.Pages.Quantity;
 
 namespace Abc.Soft.Areas.Quantity.Pages.Measures
