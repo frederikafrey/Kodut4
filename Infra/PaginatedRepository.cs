@@ -33,7 +33,15 @@ namespace Abc.Infra
 
         protected internal override IQueryable<TData> createSqlQuery() => addSkipAndTake(base.createSqlQuery());
 
-        private IQueryable<TData> addSkipAndTake(IQueryable<TData> query) => query.Skip(
-            (PageIndex - 1) * PageSize).Take(PageSize);
+        private IQueryable<TData> addSkipAndTake(IQueryable<TData> query)
+        {
+            // siin saaks kasutada ka try-catch bloki, aga see teeb rakendust aeglasemaks
+
+            if (PageIndex < 1) return query;
+            return query
+                    .Skip((PageIndex - 1) * PageSize)
+                    .Take(PageSize);
+        
+        }
     }
 }
