@@ -1,4 +1,6 @@
-﻿using Abc.Domain.Quantity;
+﻿using Abc.Aids;
+using Abc.Data.Quantity;
+using Abc.Domain.Quantity;
 
 namespace Abc.Facade.Quantity
 {
@@ -7,12 +9,7 @@ namespace Abc.Facade.Quantity
         public static Measure Create(MeasureView v)
         {
             var o = new Measure();
-            o.Data.Id = v.Id;
-            o.Data.Code = v.Code;
-            o.Data.Name = v.Name;
-            o.Data.Definition = v.Definition;
-            o.Data.ValidFrom = v.ValidFrom;
-            o.Data.ValidTo = v.ValidTo;
+            Copy.Members(v, o.Data);
 
             return o;
         }
@@ -20,12 +17,7 @@ namespace Abc.Facade.Quantity
         public static MeasureView Create(Measure o)
         {
             var v = new MeasureView();
-            v.Id = o.Data.Id;
-            v.Code = o.Data.Code;
-            v.Name = o.Data.Name;
-            v.Definition = o.Data.Definition;
-            v.ValidFrom = o.Data.ValidFrom;
-            v.ValidTo = o.Data.ValidTo;
+            Copy.Members(o.Data, v);
 
             return v;
         }
