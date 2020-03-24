@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Abc.Data.Quantity;
 using Abc.Domain.Quantity;
 using Abc.Facade.Quantity;
@@ -6,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Abc.Pages.Quantity
 {
-    public class UnitsPage : BasePage<IUnitsRepository, Unit, UnitView, UnitData>
+    public abstract class UnitsPage : BasePage<IUnitsRepository, Unit, UnitView, UnitData>
     {
         protected internal UnitsPage(IUnitsRepository r, IMeasuresRepository m) : base(r)
         {
@@ -17,8 +18,8 @@ namespace Abc.Pages.Quantity
         private static IEnumerable<SelectListItem> createMeasures(IMeasuresRepository r)
         {
             var list = new List<SelectListItem>();
-            
             var measures = r.Get().GetAwaiter().GetResult();
+
             foreach (var m in measures)
             {
                 list.Add(new SelectListItem(m.Data.Name, m.Data.Id));
@@ -28,7 +29,9 @@ namespace Abc.Pages.Quantity
 
         public IEnumerable<SelectListItem> Measures { get; }
 
-        public override string ItemId => Item.Id;
+        public override string ItemId => Item?.Id ?? string.Empty;
+
+        protected internal override string getPageUrl() => "/Quantity/Units";
 
         protected internal override string getPageSubtitle()
         {
