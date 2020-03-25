@@ -24,7 +24,7 @@ namespace Abc.Pages.Extensions
             return new HtmlContentBuilder(s);
         }
 
-        private static List<object> htmlString<TModel, TResult>
+        internal static List<object> htmlString<TModel, TResult>
             (IHtmlHelper<TModel> htmlHelper, Expression<Func<TModel, TResult>> expression)
         {
             return new List<object>

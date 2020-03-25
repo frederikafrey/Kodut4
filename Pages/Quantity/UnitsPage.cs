@@ -33,10 +33,10 @@ namespace Abc.Pages.Quantity
 
         protected internal override string getPageUrl() => "/Quantity/Units";
 
-        protected internal override string getPageSubtitle()
+        protected internal override string getPageSubTitle()
         {
             return FixedValue is null  
-                ? base.getPageSubtitle()
+                ? base.getPageSubTitle()
                 : $"For {GetMeasureName(FixedValue)}";
         }
 

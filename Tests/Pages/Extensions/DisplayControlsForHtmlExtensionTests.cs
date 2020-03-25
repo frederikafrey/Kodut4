@@ -1,8 +1,12 @@
-﻿using Abc.Pages.Extensions;
+﻿using System.Collections.Generic;
+using Abc.Facade.Quantity;
+using Abc.Pages.Extensions;
+using Microsoft.AspNetCore.Html;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Abc.Tests.Pages.Extensions
 {
+
     [TestClass]
     public class DisplayControlsForHtmlExtensionTests : BaseTests
     {
@@ -12,8 +16,19 @@ namespace Abc.Tests.Pages.Extensions
         [TestMethod]
         public void DisplayControlsForTest()
         {
-            Assert.Inconclusive();
+            var obj = new htmlHelperMock<UnitView>().DisplayControlsFor(x => x.MeasureId);
+            Assert.IsInstanceOfType(obj, typeof(HtmlContentBuilder));
+        }
+
+        [TestMethod]
+        public void HtmlStringsTest()
+        {
+            var expected = new List<string> { "<dt", "DisplayNameFor", "</dt>", "<dd", "DisplayFor", "</dd>" };
+            var actual =
+                DisplayControlsForHtmlExtension.htmlString(new htmlHelperMock<MeasureView>(), x => x.ValidFrom);
+            TestHtml.Strings(actual, expected);
         }
 
     }
+
 }

@@ -33,5 +33,15 @@ namespace Abc.Pages.Extensions {
             endDropDownNavigationMenu(htmlStrings);
             return new HtmlContentBuilder(htmlStrings);
         }
+
+        internal static List<object> htmlStrings(string name, Link[] items)
+        {
+            var list = new List<object>();
+            beginDropDownNavigationMenu(list, name);
+            foreach (var item in items) addDropDownMenuItem(list, item);
+            endDropDownNavigationMenu(list);
+
+            return list;
+        }
     }
 }
