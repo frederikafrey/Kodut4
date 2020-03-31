@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Abc.Data.Quantity
+﻿namespace Abc.Data.Quantity
 {
-    public class MeasureTermData : CommonTermData
+    public sealed class MeasureTermData : CommonTermData
     {
     }
 }

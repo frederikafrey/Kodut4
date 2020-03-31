@@ -4,8 +4,6 @@ using Abc.Domain.Quantity;
 using Abc.Facade.Quantity;
 using Abc.Pages;
 using Abc.Pages.Quantity;
-using Microsoft.AspNetCore.Mvc.Localization;
-using Microsoft.Extensions.Localization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Abc.Tests.Pages.Quantity
