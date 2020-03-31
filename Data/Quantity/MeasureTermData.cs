@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Abc.Data.Quantity
 {
-    public class MeasureTerm : CommonTerm
+    public class MeasureTermData : CommonTermData
     {
     }
 }

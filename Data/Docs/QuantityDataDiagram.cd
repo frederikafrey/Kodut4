@@ -56,25 +56,25 @@
       <FileName>Common\PeriodData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Abc.Data.Quantity.UnitTerm">
+  <Class Name="Abc.Data.Quantity.UnitTermData">
     <Position X="3.25" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Quantity\UnitTerm.cs</FileName>
+      <FileName>Quantity\UnitTermData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Abc.Data.Quantity.MeasureTerm">
+  <Class Name="Abc.Data.Quantity.MeasureTermData">
     <Position X="3.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Quantity\MeasureTerm.cs</FileName>
+      <FileName>Quantity\MeasureTermData.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Abc.Data.Quantity.CommonTerm">
+  <Class Name="Abc.Data.Quantity.CommonTermData">
     <Position X="5.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAAAAAAAAAACAAAAAAABAAAAAAAAAAA=</HashCode>
-      <FileName>Quantity\CommonTerm.cs</FileName>
+      <FileName>Quantity\CommonTermData.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
