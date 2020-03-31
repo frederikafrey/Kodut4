@@ -2,7 +2,7 @@
 
 namespace Abc.Domain.Quantity
 {
-    public interface IUnitsRepository : IRepository<Unit>
+    public interface IUnitFactorsRepository : IRepository<UnitFactor>
     {
     }
 }
