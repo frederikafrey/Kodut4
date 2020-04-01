@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Abc.Data.Common;
 using Abc.Domain.Common;
@@ -74,29 +75,14 @@ namespace Abc.Infra
 
         public async Task Update(TDomain obj)
         {
-            db.Attach(obj.Data).State = EntityState.Modified;
-            //var d = await db.Measures.FirstOrDefaultAsync(x => x.Id == obj.Data.Id);
-            //d.Code = obj.Data.Code;
-            //d.Name = obj.Data.Name;
-            //d.Definition = obj.Data.Definition;
-            //d.ValidFrom = obj.Data.ValidFrom;
-            //d.ValidTo = obj.Data.ValidTo;
-            //db.Measures.Update(d);
-            try
-            {
-                await db.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                //if (!MeasureViewExists(MeasureView.Id))
-                //{
-                //    return NotFound();
-                //}
-                //else
-                //{
-                throw;
-                //}
-            }
+            if (obj is null) return;
+            var v = await dbSet.FindAsync(getId(obj));
+            if (v is null) return;
+            dbSet.Remove(v);
+            dbSet.Add(obj.Data);
+            await db.SaveChangesAsync();
         }
+
+        protected abstract string getId(TDomain entity);
     }
 }
