@@ -6,9 +6,6 @@ namespace Abc.Tests
     public abstract class SealedClassTests<TClass, TBaseClass> : ClassTests<TClass, TBaseClass> where TClass : new() //TClassil peab olema tühjade argmentidega constructor
     {
         [TestMethod]
-        public void IsSealed()
-        {
-            Assert.IsTrue(type.IsSealed);
-        }
+        public void IsSealed() => Assert.IsTrue(type.IsSealed);
     }
 }
