@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 using Abc.Data.Common;
 using Abc.Domain.Common;
@@ -33,7 +32,8 @@ namespace Abc.Infra
 
         protected internal abstract TDomain toDomainObject(TData periodData);
 
-        internal async Task<List<TData>> runSqlQueryAsync(IQueryable<TData> query) => await query.AsNoTracking().ToListAsync();
+        internal async Task<List<TData>> runSqlQueryAsync(IQueryable<TData> query) 
+            => await query.AsNoTracking().ToListAsync();
 
         protected internal virtual IQueryable<TData> createSqlQuery()
         {
@@ -48,7 +48,7 @@ namespace Abc.Infra
 
             var d = await getData(id);
 
-            var obj = new TDomain {Data = d};
+            var obj = toDomainObject(d);
 
             return obj;
         }
@@ -59,7 +59,7 @@ namespace Abc.Infra
         {
             if (id is null) return;
             
-            var v = await dbSet.FindAsync(id);
+            var v = await getData(id);
 
             if (v is null) return;
             dbSet.Remove(v);
@@ -76,7 +76,7 @@ namespace Abc.Infra
         public async Task Update(TDomain obj)
         {
             if (obj is null) return;
-            var v = await dbSet.FindAsync(getId(obj));
+            var v = await getData(getId(obj));
             if (v is null) return;
             dbSet.Remove(v);
             dbSet.Add(obj.Data);
