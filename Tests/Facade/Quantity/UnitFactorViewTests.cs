@@ -16,5 +16,13 @@ namespace Abc.Tests.Facade.Quantity
 
         [TestMethod]
         public void FactorTest() => isProperty(() => obj.Factor, x => obj.Factor = x);
+
+        [TestMethod]
+        public void GetIdTest()
+        {
+            var actual = obj.GetId();
+            var expected = $"{obj.SystemOfUnitsId}.{obj.UnitId}";
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

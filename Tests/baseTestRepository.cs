@@ -18,7 +18,7 @@ namespace Abc.Tests
         public string SearchString { get; set; }
         public string FixedFilter { get; set; }
         public string FixedValue { get; set; }
-        private readonly List<TObj> list;
+        internal readonly List<TObj> list;
 
         public baseTestRepository()
         {

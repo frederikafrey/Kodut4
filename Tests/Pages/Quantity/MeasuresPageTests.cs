@@ -9,7 +9,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Abc.Tests.Pages.Quantity
 {
     [TestClass]
-    public class MeasuresPageTests : AbstractClassTests<MeasuresPage, BasePage<IMeasuresRepository, Measure, MeasureView, MeasureData>>
+    public class MeasuresPageTests : AbstractClassTests<MeasuresPage, 
+        CommonPage<IMeasuresRepository, Measure, MeasureView, MeasureData>>
     {
         private class testClass : MeasuresPage
         {
