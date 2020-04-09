@@ -5,7 +5,7 @@ using Abc.Domain.Common;
 
 namespace Abc.Tests
 {
-    internal class baseTestRepository<TObj, TData> 
+    internal class baseTestRepositoryForUniqueEntity<TObj, TData> 
         where TObj : Entity<TData>
         where TData : UniqueEntityData, new()
     {
@@ -20,7 +20,7 @@ namespace Abc.Tests
         public string FixedValue { get; set; }
         internal readonly List<TObj> list;
 
-        public baseTestRepository()
+        public baseTestRepositoryForUniqueEntity()
         {
             list = new List<TObj>(); 
         }

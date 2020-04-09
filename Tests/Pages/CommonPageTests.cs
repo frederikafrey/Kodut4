@@ -16,7 +16,7 @@ namespace Abc.Tests.Pages {
         public override void TestInitialize()
         {
             base.TestInitialize();
-            obj = new testClass(new testRepository());
+            obj = new testClass(new TestRepositoryForUniqueEntity());
         }
 
         [TestMethod] public void ItemIdTest() {

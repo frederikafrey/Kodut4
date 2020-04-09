@@ -9,7 +9,7 @@ namespace Abc.Tests.Pages {
     public abstract class AbstractPageTests<TClass, TBaseClass> : AbstractClassTests<TClass, TBaseClass>
         where TClass : BasePage<IMeasuresRepository, Measure, MeasureView, MeasureData> {
 
-        internal testRepository db; 
+        internal TestRepositoryForUniqueEntity db; 
         internal class testClass : CommonPage<IMeasuresRepository, Measure, MeasureView, MeasureData> {
 
             protected internal testClass(IMeasuresRepository r) : base(r) {
@@ -26,13 +26,13 @@ namespace Abc.Tests.Pages {
 
         }
 
-        internal class testRepository : baseTestRepository<Measure, MeasureData>, IMeasuresRepository { }
+        internal class TestRepositoryForUniqueEntity : baseTestRepositoryForUniqueEntity<Measure, MeasureData>, IMeasuresRepository { }
 
         [TestInitialize]
         public override void TestInitialize()
         {
             base.TestInitialize();
-            db = new testRepository();
+            db = new TestRepositoryForUniqueEntity();
         }
 
     }
