@@ -7,17 +7,20 @@ namespace Abc.Soft.Areas.Quantity.Pages.Measures
     public class IndexModel : MeasuresPage
     {
         
-        public IndexModel(IMeasuresRepository r) : base(r)
+        public IndexModel(IMeasuresRepository r, IMeasureTermsRepository t) : base(r, t)
         {
 
         }
 
         public async Task OnGetAsync(string sortOrder,
-            string currentFilter, string searchString, int? pageIndex,
+            string id, string currentFilter, string searchString, int? pageIndex,
             string fixedFilter, string fixedValue)
         {
+
+            SelectedId = id;
             await getList(sortOrder, currentFilter, searchString, pageIndex,
                 fixedFilter, fixedValue);
+
         }
 
     }

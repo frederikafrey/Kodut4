@@ -7,7 +7,7 @@ namespace Abc.Soft.Areas.Quantity.Pages.Measures
 {
     public class DetailsModel : MeasuresPage
     {
-        public DetailsModel(IMeasuresRepository r) : base(r)
+        public DetailsModel(IMeasuresRepository r, IMeasureTermsRepository t) : base(r, t)
         {
 
         }

@@ -7,7 +7,7 @@ namespace Abc.Soft.Areas.Quantity.Pages.Measures
 {
     public class EditModel : MeasuresPage
     {
-        public EditModel(IMeasuresRepository r) : base(r)
+        public EditModel(IMeasuresRepository r, IMeasureTermsRepository t) : base(r, t)
         {
 
         }
